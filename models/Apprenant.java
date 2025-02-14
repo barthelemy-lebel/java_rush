@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Apprenant {
-    private String promotion;
+    private Promotion promotion; // Liaison avec la table promotion
     private String nom;
     private String prenom;
     private String email;
@@ -9,12 +9,7 @@ public class Apprenant {
     private int absences;
     private List<String> roles;
 
-    public Apprenant() {
-        // Constructeur vide
-    }
-
-    // Constructeur complet
-    public Apprenant(String promotion, String nom, String prenom, String email, String telephone, int absences, List<String> roles) {
+    public Apprenant(Promotion promotion, String nom, String prenom, String email, String telephone, int absences, List<String> roles) {
         this.promotion = promotion;
         this.nom = nom;
         this.prenom = prenom;
@@ -24,12 +19,11 @@ public class Apprenant {
         this.roles = roles;
     }
 
-    // Getters et setters
-    public String getPromotion() {
+    public Promotion getPromotion() {
         return promotion;
     }
 
-    public void setPromotion(String promotion) {
+    public void setPromotion(Promotion promotion) {
         this.promotion = promotion;
     }
 
@@ -84,7 +78,7 @@ public class Apprenant {
     @Override
     public String toString() {
         return "Apprenant{" +
-                "promotion='" + promotion + '\'' +
+                "promotion=" + (promotion != null ? promotion.getNom() : "Aucune") +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
